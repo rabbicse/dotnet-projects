@@ -11,6 +11,7 @@ public partial class App : Application
     private const string AppName = "MutexExample";
     private static Mutex? _mutex;
 
+    #region Application
     protected override void OnStartup(StartupEventArgs e)
     {
         // If it's not the new instance, exit the application
@@ -28,11 +29,22 @@ public partial class App : Application
         base.OnStartup(e);
     }
 
+    protected override void OnExit(ExitEventArgs e)
+    {
+        _mutex?.ReleaseMutex();
+        _mutex?.Dispose();
+        base.OnExit(e);
+    }
+    #endregion
+
+
+    #region Mutex
     private static bool IsNewInstance()
     {
         _mutex = new Mutex(true, AppName, out var newInstance);
-        Debug.WriteLine("Checking for another instance of mutex : " + newInstance);
+        Debug.WriteLine($"Checking for another instance of mutex : {newInstance}");
         return newInstance;
     }
+    #endregion
 }
 
