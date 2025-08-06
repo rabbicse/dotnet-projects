@@ -1,0 +1,44 @@
+﻿<Window x:Class="AsyncWpfExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AsyncWpfExample"
+        mc:Ignorable="d"
+        Title="Async Await Operations - WPF Example" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="10" Grid.Row="0">
+            <TextBlock Text="Async Await Operations" TextAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="Blue" Margin="0,0,0,10" />
+            <Button Content="Download" Width="150" Click="DownloadDataEvent" Margin="5" />
+
+            <!--<Button Content="Start Task" Width="150" Click="StartTaskEvent" Margin="5" />-->
+
+            <!--<Button Content="Stop Task" Width="150" Click="StopTaskEvent" Margin="5" />-->
+
+            <!--<Button Content="Parallel For" Width="150" Click="ParallelForEvent" Margin="5" />-->
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="10">
+            <WrapPanel>
+                <TextBlock Text="Downloading: " FontWeight="Bold" />
+                <TextBlock Text="{Binding DownloadMessage}" />
+            </WrapPanel>
+
+            <WrapPanel>
+                <TextBlock Text="Downloaded: " FontWeight="Bold" />
+                <TextBlock Text="{Binding DownloadedMessage}" />
+            </WrapPanel>
+
+            <!--<WrapPanel>
+                <TextBlock Text="Parallel For: " />
+                <TextBlock Text="{Binding ParallelForMessage}" />
+            </WrapPanel>-->
+
+        </StackPanel>
+
+    </Grid>
+</Window>
