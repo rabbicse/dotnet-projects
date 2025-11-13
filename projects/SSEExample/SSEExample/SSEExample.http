@@ -1,0 +1,6 @@
+@SSEExample_HostAddress = http://localhost:5113
+
+GET {{SSEExample_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
